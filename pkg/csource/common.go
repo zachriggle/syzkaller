@@ -22,6 +22,7 @@ const (
 	sandboxNone      = "none"
 	sandboxSetuid    = "setuid"
 	sandboxNamespace = "namespace"
+	sandboxAndroidUntrustedApp = "android_untrusted_app"
 )
 
 func createCommonHeader(p, mmapProg *prog.Prog, replacements map[string]string, opts Options) ([]byte, error) {
@@ -71,6 +72,7 @@ func defineList(p, mmapProg *prog.Prog, opts Options) (defines []string) {
 		"SYZ_SANDBOX_NONE":              opts.Sandbox == sandboxNone,
 		"SYZ_SANDBOX_SETUID":            opts.Sandbox == sandboxSetuid,
 		"SYZ_SANDBOX_NAMESPACE":         opts.Sandbox == sandboxNamespace,
+		"SYZ_SANDBOX_ANDROID_UNTRUSTED_APP":         opts.Sandbox == sandboxAndroidUntrustedApp,
 		"SYZ_THREADED":                  opts.Threaded,
 		"SYZ_COLLIDE":                   opts.Collide,
 		"SYZ_REPEAT":                    opts.Repeat,
