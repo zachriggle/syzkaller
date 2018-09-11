@@ -1741,14 +1741,13 @@ const uid_t AID_NET_BT_ADMIN = 3001;
 const uid_t AID_NET_BT = 3002;
 const uid_t AID_INET = 3003;
 const uid_t AID_EVERYBODY = 9997;
-const uid_t AID_APP = 10000;
 const char* SELINUX_CONTEXT_UNTRUSTED_APP = "u:r:untrusted_app:s0:c512,c768";
 const char* SELINUX_LABEL_APP_DATA_FILE = "u:object_r:app_data_file:s0:c512,c768";
 const char* SELINUX_CONTEXT_FILE = "/proc/thread-self/attr/current";
 const char* SELINUX_XATTR_NAME = "security.selinux";
 
-const uid_t UNTRUSTED_APP_UID = AID_APP + 999;
-const gid_t UNTRUSTED_APP_GID = AID_APP + 999;
+const uid_t UNTRUSTED_APP_UID = 10999;
+const gid_t UNTRUSTED_APP_GID = 10999;
 const gid_t UNTRUSTED_APP_GROUPS[] = {UNTRUSTED_APP_GID, AID_NET_BT_ADMIN, AID_NET_BT, AID_INET, AID_EVERYBODY};
 const size_t UNTRUSTED_APP_NUM_GROUPS = sizeof(UNTRUSTED_APP_GROUPS) / sizeof(UNTRUSTED_APP_GROUPS[0]);
 
