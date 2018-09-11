@@ -1748,8 +1748,8 @@ const char* SELINUX_XATTR_NAME = "security.selinux";
 
 const uid_t UNTRUSTED_APP_UID = 10999;
 const gid_t UNTRUSTED_APP_GID = 10999;
-const gid_t UNTRUSTED_APP_GROUPS[] = {UNTRUSTED_APP_GID, AID_NET_BT_ADMIN, AID_NET_BT, AID_INET, AID_EVERYBODY};
-const size_t UNTRUSTED_APP_NUM_GROUPS = sizeof(UNTRUSTED_APP_GROUPS) / sizeof(UNTRUSTED_APP_GROUPS[0]);
+gid_t UNTRUSTED_APP_GROUPS[] = {UNTRUSTED_APP_GID, AID_NET_BT_ADMIN, AID_NET_BT, AID_INET, AID_EVERYBODY};
+size_t UNTRUSTED_APP_NUM_GROUPS = sizeof(UNTRUSTED_APP_GROUPS) / sizeof(UNTRUSTED_APP_GROUPS[0]);
 
 // Similar to libselinux getcon(3), but withouthe library dependency
 // and without any dynamic memory allocation.
