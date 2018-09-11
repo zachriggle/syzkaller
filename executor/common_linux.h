@@ -1740,11 +1740,11 @@ static int do_sandbox_namespace(void)
 #include <attr/xattr.h>
 #include <sys/types.h>
 
-#define AID_NET_BT_ADMIN  3001
-#define AID_NET_BT        3002
-#define AID_INET          3003
-#define AID_EVERYBODY     9997
-#define AID_APP           10000
+#define AID_NET_BT_ADMIN 3001
+#define AID_NET_BT 3002
+#define AID_INET 3003
+#define AID_EVERYBODY 9997
+#define AID_APP 10000
 
 const char* SELINUX_CONTEXT_UNTRUSTED_APP = "u:r:untrusted_app:s0:c512,c768";
 const char* SELINUX_LABEL_APP_DATA_FILE = "u:object_r:app_data_file:s0:c512,c768";
