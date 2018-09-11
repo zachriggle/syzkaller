@@ -44,7 +44,7 @@ func build(target *prog.Target, src []byte, file string) (string, error) {
 		"-DGOARCH_" + target.Arch + "=1",
 	}
 	if file == "" {
-		file, err = osutil.TempFile("syzkaller-source-*.c")
+		file, err = osutil.TempFile("*.c")
 		if err != nil {
 			return "", err
 		}
