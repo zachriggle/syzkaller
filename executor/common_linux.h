@@ -1735,6 +1735,8 @@ static int do_sandbox_namespace(void)
 #endif
 
 #if SYZ_EXECUTOR || SYZ_SANDBOX_ANDROID_UNTRUSTED_APP
+#include <stddef.h>
+
 #include <attr/xattr.h>
 #include <sys/types.h>
 
