@@ -44,10 +44,11 @@ func build(target *prog.Target, src []byte, file string) (string, error) {
 		"-DGOARCH_" + target.Arch + "=1",
 	}
 	if file == "" {
-		file, err = osutil.TempFile("*.c")
+		file, err = osutil.TempFile("")
 		if err != nil {
 			return "", err
 		}
+		file += ".c"
 		osutil.WriteFile(file, src)
 	}
 	flags = append(flags, file)
