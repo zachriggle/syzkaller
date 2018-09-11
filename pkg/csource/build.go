@@ -44,25 +44,20 @@ func build(target *prog.Target, src []byte, file string) (string, error) {
 		"-DGOARCH_" + target.Arch + "=1",
 	}
 	if file == "" {
-		flags = append(flags, "-x", "c", "-")
-	} else {
-		flags = append(flags, file)
+		file = osutil.TempFile("syzkaller-source-*.c")
+		osutil.WriteFile(file, src)
 	}
+	flags = append(flags, file)
 	flags = append(flags, sysTarget.CrossCFlags...)
 	if sysTarget.PtrSize == 4 {
 		// We do generate uint64's for syscall arguments that overflow longs on 32-bit archs.
 		flags = append(flags, "-Wno-overflow")
 	}
 	cmd := osutil.Command(compiler, flags...)
-	if file == "" {
-		cmd.Stdin = bytes.NewReader(src)
-	}
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		os.Remove(bin)
-		if file != "" {
-			src, _ = ioutil.ReadFile(file)
-		}
+		src, _ = ioutil.ReadFile(file)
 		return "", fmt.Errorf("failed to build program:\n%s\n%s\ncompiler invocation: %v %v",
 			src, out, compiler, flags)
 	}
