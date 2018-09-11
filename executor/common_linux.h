@@ -1735,8 +1735,8 @@ static int do_sandbox_namespace(void)
 #endif
 
 #if SYZ_EXECUTOR || SYZ_SANDBOX_ANDROID_UNTRUSTED_APP
-#include <sys/types.h>
 #include <attr/xattr.h>
+#include <sys/types.h>
 
 const uid_t AID_NET_BT_ADMIN = 3001;
 const uid_t AID_NET_BT = 3002;
