@@ -1450,7 +1450,7 @@ static void setup_common()
 }
 #endif
 
-#if SYZ_EXECUTOR || SYZ_SANDBOX_NONE || SYZ_SANDBOX_SETUID || SYZ_SANDBOX_NAMESPACE
+#if SYZ_EXECUTOR || SYZ_SANDBOX_NONE || SYZ_SANDBOX_SETUID || SYZ_SANDBOX_NAMESPACE || SYZ_SANDBOX_ANDROID_UNTRUSTED_APP
 #include <sched.h>
 #include <sys/prctl.h>
 #include <sys/resource.h>
@@ -1740,10 +1740,12 @@ static int do_sandbox_namespace(void)
 #include <attr/xattr.h>
 #include <sys/types.h>
 
-const uid_t AID_NET_BT_ADMIN = 3001;
-const uid_t AID_NET_BT = 3002;
-const uid_t AID_INET = 3003;
-const uid_t AID_EVERYBODY = 9997;
+#define AID_NET_BT_ADMIN  3001
+#define AID_NET_BT        3002
+#define AID_INET          3003
+#define AID_EVERYBODY     9997
+#define AID_APP           10000
+
 const char* SELINUX_CONTEXT_UNTRUSTED_APP = "u:r:untrusted_app:s0:c512,c768";
 const char* SELINUX_LABEL_APP_DATA_FILE = "u:object_r:app_data_file:s0:c512,c768";
 const char* SELINUX_CONTEXT_FILE = "/proc/thread-self/attr/current";
