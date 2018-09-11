@@ -24,14 +24,14 @@ type EnvFlags uint64
 
 // Note: New / changed flags should be added to parse_env_flags in executor.cc
 const (
-	FlagDebug            EnvFlags = 1 << iota // debug output from executor
-	FlagSignal                                // collect feedback signals (coverage)
-	FlagSandboxSetuid                         // impersonate nobody user
-	FlagSandboxNamespace                      // use namespaces for sandboxing
-	FlagSandboxAndroidUntrustedApp            // use Android sandboxing for the untrusted_app domain
-	FlagEnableTun                             // initialize and use tun in executor
-	FlagEnableNetDev                          // setup a bunch of various network devices for testing
-	FlagEnableFault                           // enable fault injection support
+	FlagDebug                      EnvFlags = 1 << iota // debug output from executor
+	FlagSignal                                          // collect feedback signals (coverage)
+	FlagSandboxSetuid                                   // impersonate nobody user
+	FlagSandboxNamespace                                // use namespaces for sandboxing
+	FlagSandboxAndroidUntrustedApp                      // use Android sandboxing for the untrusted_app domain
+	FlagEnableTun                                       // initialize and use tun in executor
+	FlagEnableNetDev                                    // setup a bunch of various network devices for testing
+	FlagEnableFault                                     // enable fault injection support
 	// Executor does not know about these:
 	FlagUseShmem      // use shared memory instead of pipes for communication
 	FlagUseForkServer // use extended protocol with handshake
